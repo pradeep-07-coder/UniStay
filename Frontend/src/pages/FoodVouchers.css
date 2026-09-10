@@ -1,0 +1,277 @@
+/* ==========================================================================
+   UNISTAY DIGITAL FOOD VOUCHERS PAGE
+   Tiered Pricing Cards, Most Popular Highlights, and Benefits
+   ========================================================================== */
+
+.vouchers-page-wrapper {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: calc(100vh - 72px);
+  padding: 3.5rem 1rem 5rem;
+}
+
+.vouchers-page {
+  max-width: 1180px;
+}
+
+/* --- Hero Header --- */
+.vouchers-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+}
+
+.vouchers-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--role-student-bg);
+  color: var(--role-student);
+  border: 1px solid var(--role-student-border);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.vouchers-header h1 {
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.vouchers-header p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-top: 0.85rem;
+  line-height: 1.6;
+}
+
+/* --- Pricing Grid --- */
+.vouchers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .vouchers-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+.voucher-pricing-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-2xl);
+  padding: 2.25rem 2rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.voucher-pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--border-strong);
+}
+
+/* Popular Tier Accent */
+.voucher-pricing-card.popular-tier {
+  border: 2px solid #16a34a;
+  box-shadow: 0 16px 32px -4px rgba(22, 163, 74, 0.15);
+  transform: scale(1.02);
+}
+
+.voucher-pricing-card.popular-tier:hover {
+  transform: scale(1.02) translateY(-6px);
+}
+
+.popular-ribbon {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.35);
+}
+
+/* Tier Header */
+.tier-header-modern {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tier-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tier-badge-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.tier-name-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Amount Display */
+.voucher-amount-section {
+  margin: 0.5rem 0 1rem;
+}
+
+.amount-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.currency-symbol {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.amount-number {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  line-height: 1;
+}
+
+.amount-subtext {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+  display: block;
+}
+
+.voucher-desc {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+
+.tier-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 0.5rem 0 1.25rem;
+}
+
+/* Features List */
+.voucher-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.voucher-features-list li {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  line-height: 1.45;
+}
+
+.feature-check-icon {
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* CTA Button */
+.btn-buy-voucher {
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.95rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  margin-top: auto;
+}
+
+/* Trust Strip */
+.vouchers-trust-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .vouchers-trust-strip {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+}
+
+.trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.trust-icon {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.trust-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-heading);
+  margin-bottom: 0.2rem;
+}
+
+.trust-item p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
