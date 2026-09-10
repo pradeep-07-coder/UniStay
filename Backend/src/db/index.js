@@ -21,10 +21,11 @@ pool.on('connect', () => {
 });
 
 pool.on('error', (err) => {
-  console.error('❌ PostgreSQL connection error:', err);
-  process.exit(-1);
+  console.error('⚠️ Unexpected idle PostgreSQL client error (will reconnect automatically):', err);
 });
 
 module.exports = {
   query: (text, params) => pool.query(text, params),
+  //controllers can acquire database clients for atomic SQL transactions
+  getClient: () => pool.connect(),
 };
