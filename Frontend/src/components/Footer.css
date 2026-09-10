@@ -1,0 +1,230 @@
+/* ==========================================================================
+   UNISTAY FOOTER COMPONENT
+   Elevated Campus Platform Footer with Trust Strip & Multi-column Navigation
+   ========================================================================== */
+
+.footer-container {
+  background: linear-gradient(180deg, #090e17 0%, #030712 100%);
+  color: #94a3b8;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-body);
+}
+
+/* --- Main Footer Grid --- */
+.footer-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.2fr 1.3fr;
+  gap: 3rem;
+}
+
+/* --- Brand Column --- */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+.footer-brand small {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  margin-left: 6px;
+  letter-spacing: 0.03em;
+}
+
+.brand-logo-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #ffffff;
+}
+
+.footer-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-desc {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+.accreditation-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4ade80;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+}
+
+.badge-check {
+  color: #4ade80;
+}
+
+/* --- Columns --- */
+.footer-col h4 {
+  color: #f8fafc;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background: #0284c7;
+  border-radius: var(--radius-full);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-col a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-col a:hover {
+  color: #38bdf8;
+  transform: translateX(4px);
+}
+
+.svc-bullet {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+.svc-bullet svg {
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.contact-details p {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  margin-bottom: 0.85rem;
+  line-height: 1.5;
+}
+
+.contact-icon {
+  color: #38bdf8;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* --- Footer Bottom Strip --- */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.5rem 1.5rem;
+  background: #030712;
+}
+
+.footer-bottom-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright-text {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.footer-legal-links a {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-legal-links a:hover {
+  color: #38bdf8;
+}
+
+.dot-sep {
+  color: #334155;
+  font-size: 0.75rem;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 1rem 1.5rem;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+}
