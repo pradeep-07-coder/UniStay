@@ -4,9 +4,18 @@ require('dotenv').config();
 const db = require('./db');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Developer 2 Route Imports
 const accommodationRoutes = require('./routes/accommodationRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
+=======
+// Developer 4 Route Imports
+const paymentRoutes = require('./routes/paymentRoutes');
+const walletRoutes = require('./routes/walletRoutes');
+const foodOrderRoutes = require('./routes/foodOrderRoutes');
+const notificationRoutes = require('./routes/notificationRoutes');
+const inquiryRoutes = require('./routes/inquiryRoutes');
+>>>>>>> 69c5178f071b6781906c8d3cb8f78ae2f9202a0f
 =======
 // Developer 1 Route Imports
 const authRoutes = require('./routes/authRoutes');
@@ -20,9 +29,18 @@ app.use(cors());
 app.use(express.json());
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // API Routes (Developer 2 Domain: Accommodations & Booking Lifecycle)
 app.use('/api/accommodations', accommodationRoutes);
 app.use('/api/bookings', bookingRoutes);
+=======
+// API Routes (Developer 4 Domain: Payments, Vouchers, Orders & Helpdesk)
+app.use('/api/payments', paymentRoutes);
+app.use('/api/wallet', walletRoutes);
+app.use('/api/food-orders', foodOrderRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/inquiries', inquiryRoutes);
+>>>>>>> 69c5178f071b6781906c8d3cb8f78ae2f9202a0f
 =======
 // API Routes (Developer 1 Domain: IAM & Admin Console)
 app.use('/api/auth', authRoutes);
@@ -36,7 +54,11 @@ app.get('/api/health', async (req, res) => {
     res.status(200).json({
       status: 'success',
 <<<<<<< HEAD
+<<<<<<< HEAD
       module: 'Developer 2 - Accommodations & Bookings',
+=======
+      module: 'Developer 4 - Finance, Vouchers, Orders & Helpdesk',
+>>>>>>> 69c5178f071b6781906c8d3cb8f78ae2f9202a0f
 =======
       module: 'Developer 1 - Auth & Core Administration',
 >>>>>>> f918e59174354a541a888ca56b5437c45559316d
@@ -62,7 +84,11 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
   console.log(`ðŸš€ [Dev 2: Accommodations] Server running on port ${PORT}`);
+=======
+  console.log(`ðŸš€ [Dev 4: Finance & Vouchers] Server running on port ${PORT}`);
+>>>>>>> 69c5178f071b6781906c8d3cb8f78ae2f9202a0f
 =======
   console.log(`ðŸš€ [Dev 1: Auth & Admin] Server running on port ${PORT}`);
 >>>>>>> f918e59174354a541a888ca56b5437c45559316d
