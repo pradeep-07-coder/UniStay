@@ -10,7 +10,7 @@ COLLATE utf8mb4_unicode_ci;
 
 ## 3. Setting up the Environment
 #create .env file inside path UniStay\Backend\ and set values for the following variables
-
+```bash
 PORT=5000
 NODE_ENV=development
 
@@ -33,10 +33,12 @@ CLOUDINARY_URL=<cloud_url>
 
 #Google Maps API Key
 GOOGLE_MAPS_API_KEY=<map_api_key>
+```
 
 #create .env file inside path UniStay\Frontend\ and set value for the following variable
+```bash
 VITE_GOOGLE_MAPS_API_KEY=<map_api_key>
-
+```
 ## 4. How to Run Locally
 
 ### Start Backend
