@@ -1,10 +1,18 @@
+-- ==========================================
+-- UniStay Complete Database Schema
+-- (Includes all alterations merged inline)
+-- ==========================================
+
+-- ==========================================
+-- 1. ENUM TYPES
+-- ==========================================
 CREATE TYPE verification_status_enum AS ENUM ('pending', 'verified', 'rejected');
 CREATE TYPE booking_status_enum AS ENUM ('pending', 'approved', 'rejected', 'cancelled');
 CREATE TYPE subscription_status_enum AS ENUM ('active', 'expired', 'cancelled');
 CREATE TYPE order_status_enum AS ENUM ('pending', 'Ready To Pick up', 'Confirmed', 'cancelled');
 
 -- ==========================================
--- 3. USER & ROLE ENTITY TABLES
+-- 2. USER & ROLE ENTITY TABLES
 -- ==========================================
 
 -- A. Student Table
@@ -21,7 +29,8 @@ CREATE TABLE STUDENT (
     university_name VARCHAR(100) NOT NULL,
     student_id_number VARCHAR(50) UNIQUE NOT NULL,
     is_active BOOLEAN DEFAULT true,
-    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    profile_image TEXT
 );
 
 -- B. Property Owner Table
@@ -38,7 +47,8 @@ CREATE TABLE PROPERTY_OWNER (
     verification_status verification_status_enum DEFAULT 'pending',
     verified_date TIMESTAMP,
     is_active BOOLEAN DEFAULT true,
-    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    profile_image TEXT
 );
 
 -- C. Meal Provider Table
@@ -55,7 +65,8 @@ CREATE TABLE MEAL_PROVIDER (
     business_name VARCHAR(100) NOT NULL,
     verification_status verification_status_enum DEFAULT 'pending',
     is_active BOOLEAN DEFAULT true,
-    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    profile_image TEXT
 );
 
 -- D. System Admin Table
@@ -65,11 +76,21 @@ CREATE TABLE ADMIN (
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
-    access_level VARCHAR(20) DEFAULT 'superadmin'
+    access_level VARCHAR(20) DEFAULT 'superadmin',
+    profile_image TEXT
+);
+
+INSERT INTO ADMIN (first_name, last_name, email, password_hash, access_level)
+VALUES (
+    'System',
+    'Admin',
+    'admin@unistay.lk',
+    '$2b$10$ARIvkLinLIwgawRqJbLZRefbQocaHaOx.XuInb8gJQAb0CvLcK9Wm',
+    'superadmin'
 );
 
 -- ==========================================
--- 4. ACADEMIC & ACCOMMODATION DOMAIN
+-- 3. ACADEMIC & ACCOMMODATION DOMAIN
 -- ==========================================
 
 -- A. University Campus Master Table
@@ -127,7 +148,7 @@ CREATE TABLE REVIEW (
 );
 
 -- ==========================================
--- 5. CATERING, MEAL PLANS & VOUCHERS
+-- 4. CATERING, MEAL PLANS & VOUCHERS
 -- ==========================================
 
 -- A. Meal Plan Packages Table
@@ -137,13 +158,14 @@ CREATE TABLE MEAL_PLAN (
     university_id INT REFERENCES UNIVERSITY(university_id) ON DELETE SET NULL,
     plan_name VARCHAR(100) NOT NULL,
     description TEXT,
-    price DECIMAL(10, 2) NOT NULL,
+    price DECIMAL(10, 2) DEFAULT 0,
     address VARCHAR(200),
     city VARCHAR(50),
     phone_number VARCHAR(15),
     latitude DECIMAL(10, 8),
     longitude DECIMAL(11, 8),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    image_url TEXT
 );
 
 -- B. Meal Plan Service Types Mapping
@@ -229,7 +251,7 @@ CREATE TABLE MEAL_REVIEW (
 );
 
 -- ==========================================
--- 6. FINANCE, WALLETS & PAYMENTS
+-- 5. FINANCE, WALLETS & PAYMENTS
 -- ==========================================
 
 -- A. Unified Platform Payment Transactions
@@ -268,7 +290,7 @@ CREATE TABLE WITHDRAWAL_REQUEST (
 );
 
 -- ==========================================
--- 7. SUPPORT, INQUIRIES & NOTIFICATIONS
+-- 6. SUPPORT, INQUIRIES & NOTIFICATIONS
 -- ==========================================
 
 -- A. Support Inquiries Table
